@@ -15,10 +15,8 @@ public class App {
 
         contractManagement.processContract(contract, 2);
 
-        for (var installment : contract.getInstallments()) {
-            System.out.println(installment.getDueDate() + " - " + installment.getAmount());
-        }
+        contract.getInstallments().forEach(System.out::println);
 
-        System.out.println(contract.getInstallmentsValue());
+        System.out.printf("%.2f \n", contract.getInstallmentsValue());
     }
 }
