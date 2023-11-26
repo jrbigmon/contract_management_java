@@ -1,8 +1,6 @@
 package models.services;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 import models.entities.Contract;
 import models.entities.Installment;
