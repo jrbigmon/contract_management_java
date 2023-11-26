@@ -24,15 +24,11 @@ public class ContractManagement {
   }
 
   public void processContract(Contract contract, Integer months) {
-    List<Installment> installments = new ArrayList<>();
-
     for (Integer month = 1; month <= months; month++) {
       LocalDateTime installmentDate = getInstallmentDate(contract.getDate(), month);
       Double valuePerMonth = contract.getTotalValue() / months;
       Double amount = getValuePerMonth(valuePerMonth, month);
-      installments.add(new Installment(installmentDate, amount));
+      contract.getInstallments().add(new Installment(installmentDate, amount));
     }
-
-    contract.setInstallments(installments);
   }
 }

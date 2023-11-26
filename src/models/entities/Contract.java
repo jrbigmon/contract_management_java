@@ -47,10 +47,6 @@ public class Contract {
     return installments;
   }
 
-  public void setInstallments(List<Installment> installments) {
-    this.installments = installments;
-  }
-
   public Double getInstallmentsValue() {
     return installments.stream().map(i -> i.getAmount()).reduce(0.0, (a, b) -> a + b);
   }
