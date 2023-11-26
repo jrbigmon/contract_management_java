@@ -24,10 +24,11 @@ public class ContractManagement {
   }
 
   public void processContract(Contract contract, Integer months) {
+    Double basicQuota = contract.getTotalValue() / months;
+
     for (Integer month = 1; month <= months; month++) {
       LocalDateTime installmentDate = getInstallmentDate(contract.getDate(), month);
-      Double valuePerMonth = contract.getTotalValue() / months;
-      Double amount = getValuePerMonth(valuePerMonth, month);
+      Double amount = getValuePerMonth(basicQuota, month);
       contract.getInstallments().add(new Installment(installmentDate, amount));
     }
   }
